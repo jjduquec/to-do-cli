@@ -1,6 +1,9 @@
 from task import Task 
 
-def create_Task(task,task_list=None): 
+task_lists=["Default"]
+tasks=[]
+def create_Task(task,task_list="Default"): 
     new_task= Task(task,task_list)
-    print(new_task)
+    tasks.append(new_task)
+    print("Task created!")
 
