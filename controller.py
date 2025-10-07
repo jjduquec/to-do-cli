@@ -1,9 +1,20 @@
-from task import Task 
+from models.task import Task 
+from models.list import TaskList
 
-task_lists=["Default"]
-tasks=[]
-def create_Task(task,task_list="Default"): 
-    new_task= Task(task,task_list)
-    tasks.append(new_task)
-    print("Task created!")
+class Controller():  
+
+    def __init__(self): 
+        pass
+
+    def create_Task(self,task,list_name="default"): 
+        task_list=TaskList(list_name)
+        list_id=task_list.get_id()
+        if list_id == 0 :
+            return False 
+        else:  
+            new_task= Task(task,list_id)  
+            return new_task.add_task()
+
+        
+       
 
