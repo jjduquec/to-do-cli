@@ -5,6 +5,12 @@ class TaskList:
         self.name=name 
         
 
+    def add_list(self):
+        conn=sqlite3.connect("tasks.db")
+        cursor=conn.cursor() 
+        cursor.execute("INSERT INTO task_list (name) VALUES(?)",(self.name,))
+
+
     def get_all_lists(self):
         #load the lists names from db 
         try:
@@ -16,7 +22,10 @@ class TaskList:
               
             return lists
         except:  
-            return {}
+            return {} 
+        
+        
+
 
     def get_id(self): 
         conn=sqlite3.connect('tasks.db')

@@ -15,20 +15,24 @@ if __name__=='__main__':
     
 
     if args.task != None :  
-        #when a task and a list were passed  
+        #when user pass a task name as parameter 
+        # it is assumed that the user also pass the list name
+        # if the list name is empty , list will be default 
         if args.list !=None: 
             exec=controller.create_Task(args.task,args.list)
+
         else:  
             exec=controller.create_Task(args.task)
           
-            
+        #validating if  task were stored successfully      
         if  exec :  
             print("Task created successfully!")
         else:
             print("An error occurred while creating the task.")
-
+    #when user only introduce a list name 
     elif args.list !=None: 
         print("list will be created")
+
   #  else:  
    #     main_menu()
     

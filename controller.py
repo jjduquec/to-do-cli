@@ -8,12 +8,13 @@ class Controller():
 
     def create_Task(self,task,list_name="default"): 
         task_list=TaskList(list_name)
-        list_id=task_list.get_id()
-        if list_id == 0 :
-            return False 
-        else:  
-            new_task= Task(task,list_id)  
-            return new_task.add_task()
+        list_id=0 
+        while list_id==0: 
+            list_id=task_list.get_id()  
+            if list_id == 0:  
+                task_list.add_list() 
+        new_task= Task(task,list_id)  
+        return new_task.add_task()
 
         
        
