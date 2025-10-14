@@ -31,7 +31,17 @@ if __name__=='__main__':
             print("An error occurred while creating the task.")
     #when user only introduce a list name 
     elif args.list !=None: 
-        print("list will be created")
+        list_name=args.list 
+        if list_name =="": 
+            print("please introduce the  task list name ")
+        else:  
+            exec=controller.create_List(list_name)
+
+            if exec :  
+                print("Task list created sucessfully")
+            else:  
+                print("an error ocurred")
+        
 
   #  else:  
    #     main_menu()

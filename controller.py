@@ -17,5 +17,10 @@ class Controller():
         return new_task.add_task()
 
         
+    def create_List(self,list_name):  
+        task_list=TaskList(list_name)
+        return task_list.add_list()   
+
+
        
 
