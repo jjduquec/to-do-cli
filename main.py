@@ -1,5 +1,5 @@
 import argparse 
-#from interface import main_menu
+from interface import main_menu
 from controller import Controller
 
 parse= argparse.ArgumentParser(prog="TO DO cli") 
@@ -42,7 +42,7 @@ if __name__=='__main__':
             else:  
                 print("an error ocurred")
         
-
-  #  else:  
-   #     main_menu()
+    #execute GUI
+    else:  
+        main_menu()
     
