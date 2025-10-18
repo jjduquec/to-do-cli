@@ -21,6 +21,8 @@ def main_menu():
         )
         if operation=='new_list':
             create_list()
+        elif operation=='new_task':
+            create_task()
         elif operation=="exit":
             execute=False
 
@@ -41,3 +43,22 @@ def create_list ():
     
     system('pause')
 
+def create_task():  
+    system('cls')
+    controller=Controller()
+    lists=controller.get_AllLists()
+    task_name=prompt("Introduce the name of the task \n")
+    task_list=choice(
+        message="Select the task list to associate the task",
+        options=[(list_name,list_name) for list_name in lists ]
+    )
+    if task_name=="":
+        print("Error, task name can not be empty")
+    else:
+        if controller.create_Task(task_name,task_list):
+            print("Task was created sucessfully")
+        else:
+            print("An error has ocurred while task was creating")
+
+    system('pause')
+    

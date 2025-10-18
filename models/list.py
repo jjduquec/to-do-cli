@@ -24,11 +24,11 @@ class TaskList:
             cursor=conn.cursor()  
             cursor.execute("SELECT * from task_list")
             rows=cursor.fetchall() 
-            lists={(row[1],row[0]) for row in rows} 
+            lists=[row[1] for row in rows]
               
             return lists
         except:  
-            return {} 
+            return [] 
         
         
 

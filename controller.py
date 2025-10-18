@@ -22,5 +22,8 @@ class Controller():
         return task_list.add_list()   
 
 
-       
+    def get_AllLists(self): 
+        task_list=TaskList()  
+        return task_list.get_all_lists()
+
 
