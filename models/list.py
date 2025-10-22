@@ -1,10 +1,13 @@
 import sqlite3  
 
 class TaskList:  
-    def __init__(self,name="default"):
-        self.name=name 
+    def __init__(self):
+        self.name="default" 
         
+    def set_Name(self,name): 
+        self.name=name
 
+        
     def add_list(self):
         try:
             conn=sqlite3.connect("tasks.db")

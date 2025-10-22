@@ -1,6 +1,6 @@
 from prompt_toolkit.shortcuts import choice
+from prompt_toolkit import *
 from prompt_toolkit import print_formatted_text as print
-from prompt_toolkit import prompt 
 from controller import Controller
 from os import system
 
@@ -15,6 +15,7 @@ def main_menu():
                 ("new_task","create a new task"),
                 ("delete_task","delete a task"), 
                 ("new_list","create a task list"),
+                ("see_tasks","see task of a list"),
                 ("delete_list","delete a task list"),
                 ("exit","exit")
             ]
@@ -61,4 +62,21 @@ def create_task():
             print("An error has ocurred while task was creating")
 
     system('pause')
-    
+
+"""
+def get_lists():
+    system('cls')  
+    controller=Controller() 
+    lists=controller.get_AllLists()  
+    options=[(list_name,list_name) for list_name in lists ] 
+    options.append(('exit','exit'))
+    option=choice(
+        message="Select the task list that you want visualize",
+        options=options
+    )
+
+    if option != 'exit': 
+        #get the tasks by list id 
+        pass 
+        
+"""  
