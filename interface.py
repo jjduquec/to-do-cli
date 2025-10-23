@@ -15,7 +15,7 @@ def main_menu():
                 ("new_task","create a new task"),
                 ("delete_task","delete a task"), 
                 ("new_list","create a task list"),
-                ("see_tasks","see task of a list"),
+                ("see_lists_and_tasks","see a list and his tasks"),
                 ("delete_list","delete a task list"),
                 ("exit","exit")
             ]
@@ -24,6 +24,8 @@ def main_menu():
             create_list()
         elif operation=='new_task':
             create_task()
+        elif operation=='see_lists_and_tasks':
+            get_lists_and_tasks()
         elif operation=="exit":
             execute=False
 
@@ -63,8 +65,8 @@ def create_task():
 
     system('pause')
 
-"""
-def get_lists():
+
+def get_lists_and_tasks():
     system('cls')  
     controller=Controller() 
     lists=controller.get_AllLists()  
@@ -74,9 +76,19 @@ def get_lists():
         message="Select the task list that you want visualize",
         options=options
     )
-
+    system('cls')
     if option != 'exit': 
         #get the tasks by list id 
-        pass 
+        tasks=controller.get_TasksByList(option) 
+        if len(tasks) > 0 : 
+            for task in tasks:  
+                print(task[1]) 
+        else:  
+            print("there are not any task associated to the list") 
         
-"""  
+        system('pause')
+    
+            
+         
+        
+  

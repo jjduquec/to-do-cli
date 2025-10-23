@@ -34,10 +34,13 @@ class Controller():
         task_list=TaskList()  
         return task_list.get_all_lists()
 
-    def get_Tasks(self,list_name): 
+    def get_TasksByList(self,list_name): 
         task_list=TaskList() 
         task_list.set_Name(list_name)
         id=task_list.get_id()  
+        task=Task() 
+        tasks=task.get_AllByListId(id) 
+        return tasks
         
 
 
