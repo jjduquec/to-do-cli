@@ -24,12 +24,18 @@ class Task:
           except:  
                return False
 
-    def get_byListId(self,id): 
+    def get_AllByListId(self,id): 
          conn=sqlite3.connect('tasks.db')         
          cursor=conn.cursor() 
-         cursor.execute("SELECT name FROM task WHERE list_id = ? ",(id,))
-         result=cursor.fetchall()  
-         return result
+         cursor.execute("SELECT task_id,name FROM task WHERE list_id = ? ",(id,))
+         rows=cursor.fetchall()  
+         
+         if len(rows) > 0 : 
+                return rows 
+         else:  
+              return []
+
+
           
 
     
