@@ -30,9 +30,9 @@ class Controller():
         return task_list.add_list()   
 
 
-    def get_AllLists(self): 
+    def get_AllListsByName(self): 
         task_list=TaskList()  
-        return task_list.get_all_lists()
+        return task_list.get_AllListByName()
 
     def get_TasksByList(self,list_name): 
         task_list=TaskList() 
@@ -41,6 +41,16 @@ class Controller():
         task=Task() 
         tasks=task.get_AllByListId(id) 
         return tasks
+    
+    def delete_ListById(self,id):
+        task=Task()  
+        task_list=TaskList()  
+        if (task.delete_ByListId(id) and task_list.delete_ById(id)):
+            return True
+        else:  
+            return False
+
+
         
 
 

@@ -20,7 +20,7 @@ class TaskList:
             return False
 
 
-    def get_all_lists(self):
+    def get_AllListByName(self):
         #load the lists names from db 
         try:
             conn=sqlite3.connect('tasks.db')
@@ -47,3 +47,14 @@ class TaskList:
            return rows[0][0]
        
 
+    def delete_ById(self,id):
+        try:
+            conn=sqlite3.connect('tasks.db')
+            cursor=conn.cursor()
+            cursor.execute("DELETE FROM task_list WHERE list_id= ?",(id,))
+            conn.commit()
+            conn.close()
+            return True  
+        except: 
+             return False 
+        
