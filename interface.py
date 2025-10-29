@@ -13,10 +13,10 @@ def main_menu():
             message="Select an operation",
             options=[
                 ("new_task","create a new task"),
-                ("delete_task","delete a task"), 
                 ("new_list","create a task list"),
                 ("see_lists_and_tasks","see a list and his tasks"),
-                ("delete_list","delete a task list"),
+                ("delete_task","delete a task"), 
+                ("delete_list","delete a task list and his tasks"),
                 ("exit","exit")
             ]
         )
