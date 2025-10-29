@@ -30,9 +30,9 @@ class Controller():
         return task_list.add_list()   
 
 
-    def get_AllListsByName(self): 
+    def get_AllListsName(self): 
         task_list=TaskList()  
-        return task_list.get_AllListByName()
+        return task_list.get_AllListsName()
 
     def get_TasksByList(self,list_name): 
         task_list=TaskList() 
@@ -51,6 +51,6 @@ class Controller():
             return False
 
 
-        
+
 
 

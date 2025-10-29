@@ -20,7 +20,7 @@ class TaskList:
             return False
 
 
-    def get_AllListByName(self):
+    def get_AllListsName(self):
         #load the lists names from db 
         try:
             conn=sqlite3.connect('tasks.db')
@@ -56,5 +56,4 @@ class TaskList:
             conn.close()
             return True  
         except: 
-             return False 
-        
+             return False

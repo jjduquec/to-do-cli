@@ -49,7 +49,7 @@ def create_list ():
 def create_task():  
     system('cls')
     controller=Controller()
-    lists=controller.get_AllListsByName()
+    lists=controller.get_AllListsName()
     task_name=prompt("Introduce the name of the task \n")
     task_list=choice(
         message="Select the task list to associate the task",
@@ -69,7 +69,7 @@ def create_task():
 def get_lists_and_tasks():
     system('cls')  
     controller=Controller() 
-    lists=controller.get_AllListsByName()  
+    lists=controller.get_AllListsName()  
     options=[(list_name,list_name) for list_name in lists ] 
     options.append(('exit','exit'))
     option=choice(
@@ -91,7 +91,7 @@ def get_lists_and_tasks():
 def delete_list(): 
     system('cls')           
     controller=Controller()  
-    lists=controller.get_AllListsByName()  
+    lists=controller.get_AllListsName()  
     options=[(list_name,list_name) for list_name in lists ] 
     options.append(('exit','exit'))
     option=choice(
@@ -103,6 +103,5 @@ def delete_list():
         pass
 
 
-         
-        
-  
+
+
