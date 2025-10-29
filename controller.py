@@ -14,7 +14,7 @@ class Controller():
             task_list.set_Name(list_name)
             list_id=0 
             while list_id==0: 
-                list_id=task_list.get_id()  
+                list_id=task_list.get_Id()  
                 if list_id == 0:  
                     task_list.add_list() 
             new_task.set_ListId(list_id)
@@ -28,16 +28,26 @@ class Controller():
         task_list=TaskList()
         task_list.set_Name(list_name)
         return task_list.add_list()   
-
+    
+    def get_ListNameById(self,id): 
+        task_list=TaskList()  
+        task_list.set_Id(id)    
+        return task_list.get_NameById()
+        #implement method in TaskList model 
+        
 
     def get_AllListsName(self): 
         task_list=TaskList()  
         return task_list.get_AllListsName()
+    
+    def get_AllLists(self): 
+        task_list=TaskList()  
+        return task_list.get_AllLists()
 
     def get_TasksByList(self,list_name): 
         task_list=TaskList() 
         task_list.set_Name(list_name)
-        id=task_list.get_id()  
+        id=task_list.get_Id()  
         task=Task() 
         tasks=task.get_AllByListId(id) 
         return tasks

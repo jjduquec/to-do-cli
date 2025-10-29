@@ -26,6 +26,8 @@ def main_menu():
             create_task()
         elif operation=='see_lists_and_tasks':
             get_lists_and_tasks()
+        elif operation=='delete_list':
+            delete_list()
         elif operation=="exit":
             execute=False
 
@@ -91,8 +93,9 @@ def get_lists_and_tasks():
 def delete_list(): 
     system('cls')           
     controller=Controller()  
-    lists=controller.get_AllListsName()  
-    options=[(list_name,list_name) for list_name in lists ] 
+    task_lists=controller.get_AllLists()
+    #-----------list id , list name -------#  
+    options=[(task_list[0],task_list[1]) for task_list in task_lists ] 
     options.append(('exit','exit'))
     option=choice(
         message="Select the list that you want delete",
@@ -100,7 +103,13 @@ def delete_list():
     )
     system('cls')
     if option!='exit':
-        pass
+        list_name=controller.get_ListNameById(option)
+        if controller.delete_ListById(option):
+            print(f"The task list '{list_name}' and his tasks has been deleted succesfully")
+        else:  
+            print("An error has ocurred while the task list was deleting")
+        
+        system('pause')
 
 
 
