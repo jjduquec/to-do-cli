@@ -60,6 +60,9 @@ class Controller():
         else:  
             return False
 
+    def delete_TaskById(self,id):
+        task=Task()  
+        return task.delete_ById(id)
 
 
 
