@@ -88,7 +88,7 @@ def delete_task():
     system('cls')
     controller=Controller()
     lists=controller.get_AllListsName() 
-    
+    #
     options=[(task_list,task_list) for task_list in lists ] 
     options.append(('exit','exit'))
     option=choice(
@@ -112,9 +112,13 @@ def delete_task():
                     options=task_options
                 ) 
                 if task_option!='exit': 
-                    print(task_option)
+                    
                     if controller.delete_TaskById(task_option):
-                        
+                        size=len(task_options) 
+                        for i in range(size):
+                            if task_options[i][0]==task_option:
+                                task_options.pop(i)
+                                break
                         print("The task has been deleted succesfully")
                     else:  
                         print("An error has ocurred while the task was deleting")
